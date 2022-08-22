@@ -1,23 +1,24 @@
-function convertirdecimalabinario(numero){
-    var resultado = "";
-    while(numero>0){
-        var resto = numero%2;
-        resultado = resto.toString() + resultado;
-        numero = Math.floor(numero/2);
+function convertirbinarioaoctal(numero){
+    var octal = "";
+    var resto = 0;
+    var contador = 0;
+    while(numero > 0){
+        resto = numero % 8;
+        octal = resto + octal;
+        numero = Math.trunc(numero / 8);
     }
-    return resultado;
+    return octal;
 }
-function convertirbinariodecimal(numero){
-    var resultado = 0;
-    var longitud = numero.length;
-    for(var i=0; i<longitud; i++){
-        resultado += parseInt(numero.charAt(i))*Math.pow(2,longitud-i-1);
+function convertiraoctalabinario(numero){
+    var binario = "";
+    var resto = 0;
+    var contador = 0;
+    while(numero > 0){
+        resto = numero % 2;
+        binario = resto + binario;
+        numero = Math.trunc(numero / 2);
     }
-    return resultado;
-}
-prompt("Ingrese un numero decimal");
-var numero = parseInt(prompt("Ingrese un numero decimal"));
-var binario = convertirdecimalabinario(numero);
-alert("El numero decimal "+numero+" en binario es "+binario);
-var decimal = convertirbinariodecimal(binario);
-alert("El numero binario "+binario+" en decimal es "+decimal);
+    return binario;
+}   
+console.log(convertirbinarioaoctal(100));
+console.log(convertiraoctalabinario(11));
